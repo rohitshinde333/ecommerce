@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My App{% endblock %}
+
+{% block content %}
+    <button class="btn btn-success"><a href="{{ url_for('login') }}" style="color: white;">Login</a></button>
+    <button class="btn btn-danger"><a href="{{ url_for('signup') }}" style="color: white;">Register</a></button>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My App{% endblock %}
+
+{% block content %}
+    <h1>Cheackout </h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <h3>{{ product.name }}</h3>
+                <p>Price: ${{ product.price }}</p>
+                <p>Stock: {{ product.stock }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+    
+        <div class="container">
+            {{ form.shipping_add.label }}
+            {{ form.shipping_add(class="form-control") }}
+        </div>
+    
+        
+    
+        <div class="container">
+            <button type="submit" class="btn btn-primary">Cheackout</button>
+        </div>
+    </form>
+    
+    
+{% endblock %}

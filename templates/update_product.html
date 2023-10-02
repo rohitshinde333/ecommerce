@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Update Product{% endblock %}
+
+{% block content %}
+    <h2>Update Product</h2>
+    <form method="POST" action="{{ url_for('update_product', product_id=product.id) }}">
+        {{ form.hidden_tag() }}
+        {{ form.name.label }} {{ form.name(size=20) }}
+        {{ form.mnfDate.label }} {{ form.mnfDate(rows=5) }}
+        {{ form.price.label }} {{ form.price() }}
+        {{ form.stock.label }} {{ form.stock() }}
+        {{ form.category_id.label }} {{ form.category_id() }}
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+{% endblock %}

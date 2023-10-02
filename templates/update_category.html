@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Update Category{% endblock %}
+
+{% block content %}
+    <h2>Update Category</h2>
+    <form method="POST" action="{{ url_for('update_category', category_id=category.id) }}">
+        {{ form.hidden_tag() }}
+        {{ form.name.label }} {{ form.name(size=20) }}
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+{% endblock %}

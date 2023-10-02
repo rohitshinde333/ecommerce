@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Add Product - Admin{% endblock %}
+
+{% block content %}
+    <h2>Add Product</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+    
+        <div class="container">
+            {{ form.name.label }}
+            {{ form.name(class="form-control") }}
+        </div>
+
+        <div class="container">
+            {{ form.mnfDate.label }}
+            {{ form.mnfDate(class="form-control") }}
+        </div>
+
+        <div class="container">
+            {{ form.price.label }}
+            {{ form.price(class="form-control") }}
+        </div>
+
+        <div class="container">
+            {{ form.stock.label }}
+            {{ form.stock(class="form-control") }}
+        </div>
+
+        <div class="container">
+            {{ form.category_id.label }}
+            {{ form.category_id(class="form-control") }}
+        </div>
+    
+        <div class="container">
+            <button type="submit" class="btn btn-warning">Add</button>
+        </div>
+    </form>
+{% endblock %}

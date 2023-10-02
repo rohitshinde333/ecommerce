@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ category.name }} Products</h2>
+    <div class="container">
+        {% for product in products %}
+            <div class="card">
+                <h3>{{ product.name }}</h3>
+                <p>Price: ${{ product.price }}</p>
+                <p>Stock: {{ product.stock }}</p>
+                {% if user.is_admin==True %}
+                    <button class="btn btn-success"> <a  href="{{url_for('update_product', product_id= product.id )}}" style="color:white"> Edit </a> </td>
+                    <button class="btn btn-danger"><a  href="{{url_for('delete_product', product_id= product.id )}}" style="color: white;"> Delete </a></button>                
+
+                {% else %}
+                <button class="btn btn-success"><a  href="{{url_for('add_to_cart', product_id= product.id )}}" style="color: white;"> Add To Cart </a></button>                
+
+                {% endif %}
+            </div>
+            <br>
+        {% endfor %}
+    </div>    
+{% endblock %}
+
+
+

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My App{% endblock %}
+
+{% block content %}
+    <h1>Welcome {{ user.username}}</h1>
+    <h3>Categories</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td> <a  href="{{url_for('category', category_id= category.id )}}">{{ category.name }}</a> </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}

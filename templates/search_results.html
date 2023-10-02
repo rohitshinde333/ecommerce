@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results - Grocery Shop{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Search Results</h1>
+        
+        <form method="post" class="mb-4">
+            {{ form.hidden_tag() }}
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        {{ form.category(class="form-control") }}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="min_price">Min Price</label>
+                        {{ form.min_price(class="form-control") }}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="max_price">Max Price</label>
+                        {{ form.max_price(class="form-control") }}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="manufacturing_date">Manufacturing Date</label>
+                        {{ form.mnfDate(class="form-control") }}
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="container">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>            
+        </form>
+        
+        <h2>Results:</h2>
+        
+        {% if results %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Manufacturing Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in results %}
+                        <tr>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.category }}</td>
+                            <td>${{ product.price }}</td>
+                            <td>{{ product.mnfDate }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    </div>
+{% endblock %}
